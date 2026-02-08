@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BLAZE SHOP — Order Custom Bot</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b0b0f;
+      --muted:#94a3b8;
+      --accent:#8b5cf6;
+      --accent-2:#06b6d4;
+      font-family:'Inter',system-ui,Roboto,Arial;
+    }
+    *{box-sizing:border-box;}
+    body{margin:0;background: radial-gradient(1200px 800px at 10% 10%, rgba(139,92,246,0.06), transparent 8%),radial-gradient(900px 600px at 90% 90%, rgba(6,182,212,0.03), transparent 10%), var(--bg);color:#e6eef8;}
+
+    header{display:flex;justify-content:space-between;align-items:center;padding:20px 40px;border-bottom:1px solid rgba(255,255,255,0.05);background:rgba(255,255,255,0.02);position:sticky;top:0;backdrop-filter:blur(10px);}
+    .logo{display:flex;align-items:center;gap:10px}
+    .logo-icon{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#5b21b6);display:flex;align-items:center;justify-content:center;box-shadow:0 0 20px rgba(139,92,246,0.3);font-weight:800;font-size:16px;color:white}
+    nav a{color:var(--muted);margin:0 14px;text-decoration:none;font-weight:600;transition:0.3s}
+    nav a:hover{color:white}
+
+    .page-title{text-align:center;margin:60px 0 20px;font-size:36px;font-weight:800;background:linear-gradient(90deg,var(--accent),var(--accent-2));-webkit-background-clip:text;color:transparent;}
+    .page-sub{color:var(--muted);text-align:center;margin-bottom:40px;font-size:15px}
+
+    .container{max-width:700px;margin:0 auto;padding:0 20px 80px}
+    form{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.05);border-radius:16px;padding:25px;box-shadow:0 0 30px rgba(139,92,246,0.2);}
+    label{display:block;margin:12px 0 6px;font-weight:600}
+    input[type=text], input[type=url], textarea, select{width:100%;padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.05);color:white;outline:none;font-size:14px;margin-bottom:10px}
+    textarea{resize:none;height:100px}
+    .wallet-info{background:rgba(255,255,255,0.02);padding:8px 12px;border-radius:8px;font-size:13px;margin:6px 0;display:none;color:var(--muted)}
+    .radio-group{margin-top:10px;}
+    .radio-group label{display:flex;align-items:center;margin-bottom:6px;cursor:pointer}
+    .radio-group input{margin-right:8px;accent-color: var(--accent);}
+    input[type=checkbox]{margin-right:8px}
+    .btn{width:100%;padding:12px 16px;border-radius:10px;border:none;font-weight:700;cursor:pointer;background:linear-gradient(90deg,var(--accent),#6d28d9);color:white;box-shadow:0 6px 20px rgba(107,33,168,0.2);transition:0.3s;margin-top:20px}
+    .btn:hover{transform:translateY(-2px)}
+    .bottom-buttons{display:flex;justify-content:space-between;margin-top:20px}
+    .bottom-buttons a{background:rgba(255,255,255,0.02);padding:12px 20px;border-radius:10px;text-decoration:none;color:white;font-weight:600;transition:0.3s}
+    .bottom-buttons a:hover{background:rgba(139,92,246,0.2)}
+
+    /* Popup */
+    .popup{position:fixed;top:0;left:0;right:0;bottom:0;display:flex;justify-content:center;align-items:center;background:rgba(0,0,0,0.6);visibility:hidden;opacity:0;transition:0.3s;z-index:1000}
+    .popup.active{visibility:visible;opacity:1}
+    .popup-box{background:linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:30px 40px;text-align:center;box-shadow:0 0 40px rgba(139,92,246,0.3);animation:pop 0.3s ease}
+    @keyframes pop{from{transform:scale(0.9);opacity:0}to{transform:scale(1);opacity:1}}
+    .popup h2{font-size:20px;color:white;margin-bottom:10px}
+    .popup p{color:var(--muted);font-size:14px;margin-bottom:20px}
+    .popup button{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:white;border:none;padding:10px 25px;border-radius:10px;cursor:pointer;font-weight:600}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <div class="logo-icon">🔥</div>
+      <div style="font-weight:800;font-size:18px">BLAZE SHOP</div>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="support.html">Support</a>
+    </nav>
+  </header>
+
+  <h1 class="page-title">Order Your Custom Bot</h1>
+  <p class="page-sub">Select your bot type, provide details, and submit. Blaze Pit team will deliver your bot promptly!</p>
+
+  <div class="container">
+    <form id="botOrderForm">
+      <label>Name*</label>
+      <input type="text" id="name" name="name" required>
+
+      <label>Discord Server Link / Username*</label>
+      <input type="url" id="discord" name="discord" placeholder="https://discord.gg/example" required>
+
+      <label>Bot Type*</label>
+      <select id="botType" name="botType" required>
+        <option value="" disabled selected>Select Bot Type</option>
+        <option value="Music Bot">Music Bot — playlist, volume, skip, YouTube playback</option>
+        <option value="Basic Bot">Basic Bot — ping, info, welcome messages</option>
+        <option value="Moderation Bot">Moderation Bot — auto-moderation, logs, bans</option>
+      </select>
+
+      <label>Bot Description / Features</label>
+      <textarea id="description" name="description" placeholder="Describe what you want your bot to do..."></textarea>
+
+      <label>Payment Method*</label>
+      <div class="radio-group">
+        <label><input type="radio" name="payment" value="LTC" required> Litecoin (LTC)</label>
+        <div id="ltc-wallet" class="wallet-info">LTC Address: LXQUUhhn5n4gE2DxrktyoKZUP61htszRPR</div>
+
+        <label><input type="radio" name="payment" value="BTC"> Bitcoin (BTC) +4.99% Fee</label>
+        <div id="btc-wallet" class="wallet-info">BTC Address: bc1qytwal0455audgzjnta76ptyfcnz39e52fj22hg</div>
+
+        <label><input type="radio" name="payment" value="UPI"> UPI</label>
+        <div id="upi-wallet" class="wallet-info">WORKING ON IT</div>
+
+        <label><input type="radio" name="payment" value="Ticket"> Other Payment — Create a ticket on server</label>
+      </div>
+
+      <label>Payment ID / Transaction*</label>
+      <input type="text" id="paymentId" name="paymentId" required placeholder="Enter transaction ID">
+
+      <label><input type="checkbox" name="terms" required> I have read and agree to Blaze Shop Terms of Service.</label>
+
+      <button type="submit" class="btn">Submit Order</button>
+
+      <div class="bottom-buttons">
+        <a href="index.html">🏠 Home</a>
+        <a href="https://discord.gg/at2SXcJjAC" target="_blank">💬 Join Discord</a>
+      </div>
+    </form>
+  </div>
+
+  <!-- Popup -->
+  <div class="popup" id="popup">
+    <div class="popup-box">
+      <h2>✅ Order Sent!</h2>
+      <p>Your bot request has been submitted. Blaze Pit will contact you soon on Discord.</p>
+      <button onclick="closePopup()">Close</button>
+    </div>
+  </div>
+
+  <script>
+    const webhookURL = "https://discord.com/api/webhooks/1431894773806928055/dEU99sL8chtWeRNdYkY8ujSZIZOY6CavxoLN07vBhzNwWSJfqtaUJVnJiYX74vMa_9oB";
+
+    // Show wallet info
+    document.querySelectorAll('input[name="payment"]').forEach(radio => {
+      radio.addEventListener('change', () => {
+        document.querySelectorAll('.wallet-info').forEach(w=>w.style.display='none');
+        if(radio.value==='LTC') document.getElementById('ltc-wallet').style.display='block';
+        if(radio.value==='BTC') document.getElementById('btc-wallet').style.display='block';
+        if(radio.value==='UPI') document.getElementById('upi-wallet').style.display='block';
+      });
+    });
+
+    document.getElementById('botOrderForm').addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const discord = document.getElementById('discord').value;
+      const botType = document.getElementById('botType').value;
+      const description = document.getElementById('description').value || "Not provided";
+      const payment = document.querySelector('input[name="payment"]:checked')?.value || "Not selected";
+      const paymentId = document.getElementById('paymentId').value;
+
+      const payload = {
+        content: "**📩 New Bot Order Received!**",
+        embeds: [{
+          title: "🤖 Custom Bot Order",
+          color: 10027263,
+          fields: [
+            { name: "👤 Name", value: name, inline: true },
+            { name: "💬 Discord Server/User", value: discord, inline: true },
+            { name: "🛠 Bot Type", value: botType, inline: true },
+            { name: "📝 Bot Description", value: description, inline: false },
+            { name: "💸 Payment Method", value: payment, inline: true },
+            { name: "💳 Payment ID / Transaction", value: paymentId, inline: true }
+          ],
+          footer: { text: "Blaze Shop — Blaze Pit" },
+          timestamp: new Date()
+        }]
+      };
+
+      try {
+        await fetch(webhookURL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+
+        // Reset form and hide wallet info
+        document.getElementById('botOrderForm').reset();
+        document.querySelectorAll('.wallet-info').forEach(w => w.style.display = 'none');
+
+        // Show success popup
+        document.getElementById('popup').classList.add('active');
+      } catch (err) {
+        alert("❌ Failed to send order. Please try again.");
+        console.error(err);
+      }
+    });
+
+    function closePopup() {
+      document.getElementById('popup').classList.remove('active');
+    }
+  </script>
+</body>
+</html>

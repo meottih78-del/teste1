@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blaze Pit — Nitro Trial 3 Month</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:#0b0b0f;
+      --muted:#94a3b8;
+      --accent:#8b5cf6;
+      --accent-2:#06b6d4;
+      font-family:'Inter',system-ui,sans-serif;
+    }
+    body {
+      margin:0;
+      background:radial-gradient(1200px 800px at 10% 10%,rgba(139,92,246,0.06),transparent 8%),
+                 radial-gradient(900px 600px at 90% 90%,rgba(6,182,212,0.03),transparent 10%),
+                 var(--bg);
+      color:#e6eef8;
+    }
+    header {
+      display:flex;justify-content:space-between;align-items:center;
+      padding:20px 40px;border-bottom:1px solid rgba(255,255,255,0.05);
+      background:rgba(255,255,255,0.02);backdrop-filter:blur(10px);
+      position:sticky;top:0;z-index:99;
+    }
+    .logo{display:flex;align-items:center;gap:10px;}
+    .logo-icon{width:38px;height:38px;border-radius:10px;
+      background:linear-gradient(135deg,var(--accent),#5b21b6);
+      display:flex;align-items:center;justify-content:center;
+      box-shadow:0 0 20px rgba(139,92,246,0.3);
+      font-weight:800;font-size:16px;color:white;}
+    nav a{color:var(--muted);margin:0 14px;text-decoration:none;font-weight:600;transition:.3s;}
+    nav a:hover{color:white;}
+
+    .container{
+      max-width:650px;margin:60px auto;background:rgba(255,255,255,0.02);
+      border:1px solid rgba(255,255,255,0.05);border-radius:18px;
+      padding:40px 30px;box-shadow:0 0 30px rgba(139,92,246,0.15);
+    }
+    h1{text-align:center;font-size:30px;font-weight:800;
+      background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      -webkit-background-clip:text;color:transparent;margin-bottom:10px;}
+    p{text-align:center;color:var(--muted);font-size:15px;margin-bottom:25px;}
+
+    form{display:flex;flex-direction:column;gap:18px;}
+    input,textarea{
+      background:rgba(255,255,255,0.03);
+      border:1px solid rgba(255,255,255,0.07);
+      border-radius:10px;padding:12px 14px;color:white;
+      font-size:15px;outline:none;transition:0.3s;
+    }
+    input:focus,textarea:focus{
+      border-color:var(--accent);box-shadow:0 0 8px rgba(139,92,246,0.4);
+    }
+    textarea{resize:none;height:80px;}
+
+    .payment-section{
+      margin-top:10px;background:rgba(255,255,255,0.02);
+      border:1px solid rgba(255,255,255,0.05);border-radius:12px;padding:20px;
+    }
+    .payment-section h3{
+      font-size:18px;font-weight:700;margin-bottom:15px;color:white;text-align:center;
+    }
+    .payment-option{
+      display:flex;align-items:center;background:rgba(255,255,255,0.03);
+      border:1px solid rgba(255,255,255,0.08);border-radius:10px;
+      padding:10px 15px;margin-bottom:10px;cursor:pointer;transition:0.3s;
+    }
+    .payment-option:hover{
+      background:rgba(139,92,246,0.1);border-color:rgba(139,92,246,0.4);
+      box-shadow:0 0 10px rgba(139,92,246,0.3);
+    }
+    .payment-option input{margin-right:10px;accent-color:var(--accent);}
+    .payment-label{font-size:15px;font-weight:600;color:#e6eef8;}
+    .payment-address{text-align:center;margin-top:20px;}
+    .payment-address p{margin:4px 0;color:var(--muted);}
+    .payment-address .small-address{
+      font-size:13px;color:#9ca3af;background:rgba(255,255,255,0.03);
+      padding:8px 10px;border-radius:8px;word-break:break-all;
+      border:1px solid rgba(255,255,255,0.05);
+    }
+    button{
+      margin-top:20px;padding:14px;
+      background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      border:none;border-radius:12px;color:white;font-weight:700;cursor:pointer;
+      transition:.3s;
+    }
+    button:hover{transform:translateY(-2px);box-shadow:0 0 20px rgba(139,92,246,0.4);}
+    footer{text-align:center;padding:25px;font-size:13px;color:var(--muted);
+      border-top:1px solid rgba(255,255,255,0.05);margin-top:40px;}
+
+    /* popup */
+    .popup{
+      position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(0.9);
+      background:rgba(20,20,30,0.95);border:1px solid rgba(255,255,255,0.05);
+      border-radius:12px;padding:25px 35px;text-align:center;color:white;
+      font-weight:600;box-shadow:0 0 25px rgba(139,92,246,0.4);
+      opacity:0;transition:0.3s ease;z-index:100;
+    }
+    .popup.active{opacity:1;transform:translate(-50%,-50%) scale(1);}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <div class="logo-icon">🔥</div>
+      <div style="font-weight:800;font-size:18px">Blaze Pit</div>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="support.html">Support</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h1>Nitro Trial — 3 Month</h1>
+    <p>Exclusive for new or 1-time Nitro users. Instant delivery after payment confirmation.</p>
+
+    <form id="orderForm">
+      <input type="text" name="username" placeholder="Your Discord Username (e.g. Aryan#1234)" required>
+      <textarea name="notes" placeholder="Additional Notes (optional)"></textarea>
+
+      <div class="payment-section">
+        <h3>Select Payment Method</h3>
+        <label class="payment-option">
+          <input type="radio" name="payment" value="LTC" required>
+          <span class="payment-label">Litecoin (LTC)</span>
+        </label>
+        <label class="payment-option">
+          <input type="radio" name="payment" value="BTC">
+          <span class="payment-label">Bitcoin (BTC) +4.99% Fee</span>
+        </label>
+        <label class="payment-option">
+          <input type="radio" name="payment" value="UPI">
+          <span class="payment-label">UPI</span>
+        </label>
+        <label class="payment-option">
+          <input type="radio" name="payment" value="Other">
+          <span class="payment-label">Other — Create Ticket in Server</span>
+        </label>
+
+        <div class="payment-address" id="paymentAddress">
+          <p><strong>Payment Address:</strong></p>
+          <p class="small-address" id="addressText">Select a payment method</p>
+        </div>
+      </div>
+
+      <button type="submit">Submit Order</button>
+    </form>
+  </div>
+
+  <div class="popup" id="successPopup">✅ Order Submitted Successfully!</div>
+
+  <footer>© 2025 Blaze Pit — All Rights Reserved</footer>
+
+  <script>
+    const form = document.getElementById("orderForm");
+    const popup = document.getElementById("successPopup");
+    const addressText = document.getElementById("addressText");
+    const webhookURL = "https://discord.com/api/webhooks/1431894773806928055/dEU99sL8chtWeRNdYkY8ujSZIZOY6CavxoLN07vBhzNwWSJfqtaUJVnJiYX74vMa_9oB";
+
+    // payment address change
+    document.querySelectorAll("input[name='payment']").forEach((radio)=>{
+      radio.addEventListener("change",()=>{
+        if(radio.value==="LTC"){
+          addressText.innerHTML="Litecoin (LTC) Address:<br><span class='small-address'>LXQUUhhn5n4gE2DxrktyoKZUP61htszRPR</span>";
+        }else if(radio.value==="BTC"){
+          addressText.innerHTML="Bitcoin (BTC) Address:<br><span class='small-address'>bc1qytwal0455audgzjnta76ptyfcnz39e52fj22hg</span>";
+        }else if(radio.value==="UPI"){
+          addressText.innerHTML="UPI: <span class='small-address'>WORKING ON IT</span>";
+        }else{
+          addressText.innerHTML="Create a Ticket in Server: <a href='https://discord.gg/at2SXcJjAC' style='color:#8b5cf6;text-decoration:none;'>Join Blaze Pit</a>";
+        }
+      });
+    });
+
+    form.addEventListener("submit",(e)=>{
+      e.preventDefault();
+
+      const username=form.username.value;
+      const notes=form.notes.value||"None";
+      const payment=form.payment.value;
+      const address=addressText.textContent.trim();
+
+      const payload={
+        embeds:[{
+          title:"🧾 New Nitro Trial (3 Month) Order",
+          color:7506394,
+          fields:[
+            {name:"User",value:username,inline:true},
+            {name:"Payment Method",value:payment,inline:true},
+            {name:"Notes",value:notes,inline:false},
+            {name:"Payment Address",value:address,inline:false}
+          ],
+          footer:{text:"Blaze Pit — Nitro Orders"}
+        }]
+      };
+
+      fetch(webhookURL,{
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify(payload)
+      });
+
+      popup.classList.add("active");
+      setTimeout(()=>popup.classList.remove("active"),2000);
+      form.reset();
+      addressText.innerText="Select a payment method";
+    });
+  </script>
+</body>
+</html>

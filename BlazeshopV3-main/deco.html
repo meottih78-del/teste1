@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blaze Pit — Deco & Profile Effects</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:#0b0b0f;
+      --muted:#94a3b8;
+      --accent:#8b5cf6;
+      --accent-2:#06b6d4;
+      font-family:'Inter', system-ui, sans-serif;
+    }
+    body {
+      margin:0;
+      background: radial-gradient(1200px 800px at 10% 10%, rgba(139,92,246,0.06), transparent 8%),
+                  radial-gradient(900px 600px at 90% 90%, rgba(6,182,212,0.03), transparent 10%),
+                  var(--bg);
+      color:#e6eef8;
+    }
+    header {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px 40px;
+      border-bottom:1px solid rgba(255,255,255,0.05);
+      background:rgba(255,255,255,0.02);
+      position:sticky;top:0;backdrop-filter:blur(10px);
+    }
+    .logo { display:flex; align-items:center; gap:10px; }
+    .logo-icon {
+      width:38px; height:38px; border-radius:10px;
+      background:linear-gradient(135deg,var(--accent),#5b21b6);
+      display:flex; align-items:center; justify-content:center;
+      box-shadow:0 0 20px rgba(139,92,246,0.3);
+      font-weight:800; font-size:16px; color:white;
+    }
+    nav a { color:var(--muted); margin:0 14px; text-decoration:none; font-weight:600; transition:0.3s; }
+    nav a:hover { color:white; }
+
+    .page-header {
+      text-align:center;
+      padding:60px 20px;
+    }
+    .page-header h1 {
+      font-size:36px;
+      font-weight:800;
+      background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      -webkit-background-clip:text;
+      color:transparent;
+      margin-bottom:10px;
+    }
+    .page-header p {
+      color:var(--muted);
+      font-size:16px;
+      margin-bottom:40px;
+    }
+
+    .product-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+      gap:25px;
+      padding:0 20px 60px;
+      max-width:900px;
+      margin:0 auto;
+    }
+    .product-card {
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border:1px solid rgba(255,255,255,0.05);
+      border-radius:16px;
+      padding:20px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      box-shadow:0 0 20px rgba(139,92,246,0.2);
+      transition:0.3s;
+      text-align:center;
+    }
+    .product-card:hover {
+      box-shadow:0 0 30px rgba(139,92,246,0.4);
+      transform:translateY(-3px);
+    }
+    .product-card img {
+      width:100%;
+      max-height:160px;
+      object-fit:cover;
+      border-radius:12px;
+      margin-bottom:15px;
+    }
+    .product-card h3 {
+      margin:0 0 12px;
+      font-size:20px;
+      font-weight:700;
+      color:white;
+    }
+    .product-card p {
+      color:var(--muted);
+      font-size:14px;
+      flex-grow:1;
+      margin-bottom:20px;
+    }
+    .btn {
+      background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      color:white;
+      border:none;
+      padding:12px;
+      border-radius:12px;
+      font-weight:700;
+      cursor:pointer;
+      text-decoration:none;
+      transition:0.3s;
+    }
+    .btn:hover { transform:translateY(-2px); }
+
+    footer {
+      text-align:center;
+      padding:25px;
+      font-size:13px;
+      color:var(--muted);
+      border-top:1px solid rgba(255,255,255,0.05);
+      margin-top:40px;
+    }
+    footer strong a { color:#8b5cf6; text-decoration:none; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <div class="logo-icon">🔥</div>
+      <div style="font-weight:800;font-size:18px">Blaze Pit</div>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="support.html">Support</a>
+    </nav>
+  </header>
+
+  <section class="page-header">
+    <h1>Deco & Profile Effects</h1>
+    <p>Enhance your Discord profile or avatar with premium decorations and effects.</p>
+  </section>
+
+  <section class="product-grid">
+    <div class="product-card">
+      <img src="https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3Mm5hcTY0NDdidWVqZWsyeXc2b2VpcGFzN3hmOWgxbTJtZWJiZzFocyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/Kct9Or59JmTr1AhCVR/giphy.gif" alt="Avatar Deco">
+      <h3>Avatar Deco</h3>
+      <p>Decorative enhancements for your Discord avatar to make it visually unique.</p>
+      <a href="deco-order.html" class="btn">Order Now</a>
+    </div>
+
+    <div class="product-card">
+      <img src="https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3Mm5hcTY0NDdidWVqZWsyeXc2b2VpcGFzN3hmOWgxbTJtZWJiZzFocyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/GnsG8tdfE5OwVNAO8b/giphy.gif" alt="Profile Effect">
+      <h3>Profile Effect</h3>
+      <p>Animated or special effects for your Discord profile to stand out.</p>
+      <a href="deco-order.html" class="btn">Order Now</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Blaze Pit • Secure Discord Services</p>
+    <p>Join our Discord — <strong><a href="https://discord.gg/at2SXcJjAC">Blaze Pit</a></strong></p>
+  </footer>
+</body>
+</html>

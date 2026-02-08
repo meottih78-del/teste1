@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BLAZE SHOP — Discord Digital Store</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b0b0f;
+      --card:#0f1220;
+      --muted:#94a3b8;
+      --accent:#8b5cf6; /* purple */
+      --accent-2:#06b6d4; /* teal */
+      --glass: rgba(255,255,255,0.03);
+      --neon: 0 6px 30px rgba(139,92,246,0.12), 0 0 30px rgba(139,92,246,0.06);
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background: radial-gradient(1200px 800px at 10% 10%, rgba(139,92,246,0.06), transparent 8%),
+                  radial-gradient(900px 600px at 90% 90%, rgba(6,182,212,0.03), transparent 10%),
+                  var(--bg);
+      color:#e6eef8;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:0;
+    }
+
+    header{
+      display:flex;justify-content:space-between;align-items:center;padding:20px 40px;border-bottom:1px solid rgba(255,255,255,0.05);background:rgba(255,255,255,0.02);position:sticky;top:0;backdrop-filter:blur(10px);
+    }
+    .logo{display:flex;align-items:center;gap:12px}
+    .logo-icon{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#5b21b6);display:flex;align-items:center;justify-content:center;box-shadow:var(--neon);font-weight:800;font-size:18px;color:white;letter-spacing:1px}
+    nav a{color:var(--muted);margin:0 14px;text-decoration:none;font-weight:600;transition:0.3s}
+    nav a:hover{color:white}
+
+    .hero{
+      text-align:center;padding:120px 20px 80px;max-width:960px;margin:auto;
+    }
+    .hero h1{font-size:52px;margin:0;background:linear-gradient(90deg,var(--accent),var(--accent-2));-webkit-background-clip:text;color:transparent;font-weight:800;letter-spacing:-1px}
+    .hero p{color:var(--muted);margin-top:16px;font-size:17px}
+    .hero .buttons{margin-top:28px;display:flex;justify-content:center;gap:16px}
+    .btn{padding:14px 24px;border-radius:10px;font-weight:700;border:none;cursor:pointer;transition:0.3s}
+    .btn-primary{background:linear-gradient(90deg,var(--accent),#6d28d9);color:white;box-shadow:0 10px 30px rgba(107,33,168,0.2)}
+    .btn-primary:hover{transform:translateY(-2px)}
+    .btn-secondary{background:transparent;border:1px solid rgba(255,255,255,0.08);color:var(--muted)}
+    .btn-secondary:hover{border-color:rgba(255,255,255,0.2);color:white}
+
+    .section-title{text-align:center;margin-top:80px;margin-bottom:32px;font-size:26px;font-weight:800}
+
+    .products{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;max-width:1100px;margin:auto;padding:0 20px 80px}
+
+    .product{
+      background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));
+      border:1px solid rgba(255,255,255,0.04);
+      border-radius:16px;padding:20px;text-align:left;box-shadow:0 8px 30px rgba(0,0,0,0.6);transition:0.3s ease all;
+    }
+    .product:hover{transform:translateY(-4px);box-shadow:0 10px 40px rgba(139,92,246,0.18)}
+    .product h3{margin:0;font-size:18px;color:white}
+    .product p{margin:6px 0 12px;color:var(--muted);font-size:14px}
+    .price{font-size:20px;font-weight:800;color:var(--accent);margin-bottom:12px}
+
+    footer{text-align:center;color:var(--muted);font-size:14px;padding:40px;border-top:1px solid rgba(255,255,255,0.05)}
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <div class="logo-icon">🔥</div>
+      <div style="font-weight:800;font-size:18px">BLAZE SHOP</div>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="shop.html">Products</a>
+      <a href="support.html">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <h1>Welcome to BLAZE SHOP</h1>
+    <p>Your trusted digital store for Discord boosts, bots, and premium services. Fast delivery, secure transactions, and replacement guarantee.</p>
+    <div class="buttons">
+  <button class="btn btn-primary" onclick="window.location.href='shop.html'">Shop Now</button>
+  <button class="btn btn-secondary">Join Discord</button>
+</div>
+
+  </section>
+
+  <section id="products">
+    <div class="section-title">🔥 Featured Products</div>
+    <div class="products">
+      <div class="product">
+        <h3>14x Discord Server Boosts (1 Month)</h3>
+        <p>Power up your community instantly with 14 real server boosts applied securely.</p>
+        <div class="price">XXX</div>
+       <button class="btn btn-primary" style="width:100%" onclick="window.location.href='14xboost.html'">
+  Buy Now
+</button>
+
+      </div>
+      <div class="product">
+        <h3>Discord Bot Setup</h3>
+        <p>Custom setup for your server’s automation and moderation needs.</p>
+        <div class="price">₹299</div>
+        <button class="btn btn-primary" style="width:100%" onclick="window.location.href='orderbot.html'">
+  Buy Now
+</button>
+
+      </div>
+      <div class="product">
+        <h3>Custom Discord Server Design</h3>
+        <p>Professional server layout, roles, and channels with your theme.</p>
+        <div class="price">₹199</div>
+        <button class="btn btn-primary" style="width:100%">Buy Now</button>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <p>© 2025 BLAZE SHOP. All rights reserved.</p>
+    <p>Join us on Discord — <strong>https://discord.gg/at2SXcJjAC</strong></p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BLAZE SHOP — Discord Nitro Basic 1 Year</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0b0b0f;
+      --muted: #94a3b8;
+      --accent: #8b5cf6;
+      --accent-2: #06b6d4;
+      font-family: 'Inter', system-ui, sans-serif;
+    }
+    body {
+      margin: 0;
+      background: radial-gradient(1200px 800px at 10% 10%, rgba(139,92,246,0.06), transparent 8%),
+                  radial-gradient(900px 600px at 90% 90%, rgba(6,182,212,0.03), transparent 10%),
+                  var(--bg);
+      color: #e6eef8;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      background: rgba(255,255,255,0.02);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--accent), #5b21b6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 20px rgba(139,92,246,0.3);
+      font-weight: 800;
+      font-size: 16px;
+      color: white;
+    }
+    nav a {
+      color: var(--muted);
+      margin: 0 14px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      color: white;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 60px auto;
+      padding: 30px;
+      border-radius: 16px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border: 1px solid rgba(255,255,255,0.05);
+      box-shadow: 0 0 30px rgba(139,92,246,0.2);
+    }
+    h1 {
+      text-align: center;
+      font-size: 30px;
+      font-weight: 800;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .desc {
+      text-align: center;
+      color: var(--muted);
+      margin-bottom: 20px;
+      font-size: 15px;
+    }
+    .warning {
+      background: rgba(255,255,255,0.05);
+      border-left: 4px solid #f87171;
+      color: #fca5a5;
+      padding: 10px 15px;
+      border-radius: 8px;
+      margin-bottom: 25px;
+      font-size: 14px;
+    }
+    label {
+      font-weight: 600;
+      display: block;
+      margin: 10px 0 6px;
+    }
+    input[type="text"], input[type="email"] {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 18px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.05);
+      color: white;
+      font-size: 14px;
+      outline: none;
+    }
+    .payment {
+      margin: 15px 0;
+    }
+    .method {
+      background: rgba(255,255,255,0.04);
+      padding: 10px 14px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+    .method input {
+      margin-right: 8px;
+    }
+    .method small {
+      color: var(--muted);
+      display: block;
+      margin-top: 4px;
+      font-size: 13px;
+    }
+    button {
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      color: white;
+      border: none;
+      width: 100%;
+      padding: 12px;
+      border-radius: 10px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-top: 15px;
+    }
+    button:hover {
+      transform: translateY(-2px);
+    }
+    .footer-note {
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 25px;
+    }
+
+    /* ✅ Popup Styles */
+    .popup {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      visibility: hidden;
+      opacity: 0;
+      transition: 0.3s ease;
+      z-index: 999;
+    }
+    .popup.active {
+      visibility: visible;
+      opacity: 1;
+    }
+    .popup-box {
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 30px 40px;
+      text-align: center;
+      box-shadow: 0 0 40px rgba(139,92,246,0.3);
+      animation: pop 0.3s ease;
+    }
+    @keyframes pop {
+      from { transform: scale(0.9); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    .popup h2 {
+      font-size: 20px;
+      color: white;
+      margin-bottom: 10px;
+    }
+    .popup p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+    .popup button {
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      color: white;
+      border: none;
+      padding: 10px 25px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <div class="logo-icon">🔥</div>
+      <div style="font-weight:800;font-size:18px">BLAZE SHOP</div>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="support.html">Support</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h1>Discord Nitro Basic — 1 Year</h1>
+    <p class="desc">Enjoy 12 months of Nitro Basic — custom emojis, HD uploads, and more perks.</p>
+    
+
+    <form id="nitroBasicYearForm">
+      <label>Name*</label>
+      <input type="text" id="name" required>
+
+      <label>Email Address*</label>
+      <input type="email" id="email" required>
+
+      <label>Discord Username*</label>
+      <input type="text" id="discord" placeholder="e.g. Blaze#1234" required>
+
+      <label>Payment Method*</label>
+      <div class="payment">
+        <div class="method">
+          <input type="radio" name="payment" value="LTC" required>
+          Litecoin (LTC)
+          <small>Litecoin Address: <code>LXQUUhhn5n4gE2DxrktyoKZUP61htszRPR</code></small>
+        </div>
+        <div class="method">
+          <input type="radio" name="payment" value="BTC">
+          Bitcoin (BTC) + 4.99% Fee
+          <small>Bitcoin Address: <code>bc1qytwal0455audgzjnta76ptyfcnz39e52fj22hg</code></small>
+        </div>
+        <div class="method">
+          <input type="radio" name="payment" value="UPI">
+          UPI
+          <small>Working on it...</small>
+        </div>
+      </div>
+
+      <label>Payment ID*</label>
+      <input type="text" id="paymentId" placeholder="Txn ID / Hash" required>
+
+      <div class="method">
+        <input type="checkbox" required> I agree to Blaze Shop Terms of Service.
+      </div>
+      <div class="method">
+        <input type="checkbox"> I would like to receive promotions.
+      </div>
+
+      <button type="submit">Place Order</button>
+    </form>
+
+    <div class="footer-note">
+      📸 Send Screenshot and Server Link to <a href="https://discord.gg/at2SXcJjAC" style="color:#8b5cf6;text-decoration:none;">Blaze Pit Discord Server</a> — Your Order Will Be Processed Automatically.
+    </div>
+  </div>
+
+  <!-- ✅ Success Popup -->
+  <div class="popup" id="popup">
+    <div class="popup-box">
+      <h2>✅ Order Submitted Successfully!</h2>
+      <p>Our team will contact you soon via Discord or email.</p>
+      <button onclick="closePopup()">Close</button>
+    </div>
+  </div>
+
+  <script>
+  async function sendToDiscord(payload) {
+    const webhookURL = "https://discord.com/api/webhooks/1431894773806928055/dEU99sL8chtWeRNdYkY8ujSZIZOY6CavxoLN07vBhzNwWSJfqtaUJVnJiYX74vMa_9oB";
+    await fetch(webhookURL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+  }
+
+  document.getElementById("nitroBasicYearForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const discord = document.getElementById("discord").value;
+    const payment = document.querySelector("input[name='payment']:checked")?.value || "Not selected";
+    const paymentId = document.getElementById("paymentId").value;
+
+    const payload = {
+      content: "**💎 New Nitro Basic 1 Year Order Received!**",
+      embeds: [{
+        title: "Nitro Basic 1 Year Order",
+        color: 1127128,
+        fields: [
+          { name: "👤 Name", value: name, inline: true },
+          { name: "📧 Email", value: email, inline: true },
+          { name: "💬 Discord", value: discord, inline: true },
+          { name: "💸 Payment Method", value: payment, inline: true },
+          { name: "🧾 Payment ID", value: paymentId, inline: false },
+        ],
+        footer: { text: "Blaze Shop Nitro Orders" },
+        timestamp: new Date()
+      }]
+    };
+
+    await sendToDiscord(payload);
+    document.getElementById("nitroBasicYearForm").reset();
+    document.getElementById("popup").classList.add("active");
+  });
+
+  function closePopup() {
+    document.getElementById("popup").classList.remove("active");
+  }
+  </script>
+</body>
+</html>

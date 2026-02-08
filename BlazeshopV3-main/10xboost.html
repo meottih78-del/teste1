@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BLAZE SHOP — 10x Server Boost</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b0b0f;
+      --muted:#94a3b8;
+      --accent:#8b5cf6;
+      --accent-2:#06b6d4;
+      font-family:'Inter',system-ui,Roboto,Arial;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background: radial-gradient(1200px 800px at 10% 10%, rgba(139,92,246,0.06), transparent 8%),
+                  radial-gradient(900px 600px at 90% 90%, rgba(6,182,212,0.03), transparent 10%), var(--bg);
+      color:#e6eef8;}
+
+    header{display:flex;justify-content:space-between;align-items:center;padding:20px 40px;border-bottom:1px solid rgba(255,255,255,0.05);background:rgba(255,255,255,0.02);position:sticky;top:0;backdrop-filter:blur(10px);}
+    .logo{display:flex;align-items:center;gap:10px}
+    .logo-icon{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#5b21b6);display:flex;align-items:center;justify-content:center;box-shadow:0 0 20px rgba(139,92,246,0.3);font-weight:800;font-size:16px;color:white}
+    nav a{color:var(--muted);margin:0 14px;text-decoration:none;font-weight:600;transition:0.3s}
+    nav a:hover{color:white}
+
+    .page-title{text-align:center;margin:60px 0 20px;font-size:36px;font-weight:800;background:linear-gradient(90deg,var(--accent),var(--accent-2));-webkit-background-clip:text;color:transparent;}
+    .page-sub{color:var(--muted);text-align:center;margin-bottom:40px;font-size:15px}
+
+    .container{max-width:700px;margin:0 auto;padding:0 20px 80px}
+    .product-desc{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.05);border-radius:16px;padding:20px;margin-bottom:30px;}
+    .product-desc h3{margin:0 0 10px;font-size:20px;color:white}
+    .product-desc p{margin:6px 0;color:var(--muted);font-size:14px;white-space:pre-line}
+
+    form{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.05);border-radius:16px;padding:20px;}
+    label{display:block;margin:12px 0 6px;font-weight:600}
+    input[type=text], input[type=email]{width:100%;padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.05);color:white;outline:none;font-size:14px;margin-bottom:10px}
+    input[type=radio]{margin-right:8px}
+    small{color:var(--muted);font-size:12px;display:block;margin-bottom:6px}
+    .wallet-info{margin-left:20px;color:var(--muted);font-size:13px;margin-bottom:10px}
+    .btn{width:100%;padding:12px 16px;border-radius:10px;border:none;font-weight:700;cursor:pointer;background:linear-gradient(90deg,var(--accent),#6d28d9);color:white;box-shadow:0 6px 20px rgba(107,33,168,0.2);transition:0.3s;margin-top:20px}
+    .btn:hover{transform:translateY(-2px)}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <div class="logo-icon">🔥</div>
+      <div style="font-weight:800;font-size:18px">BLAZE SHOP</div>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="support.html">Support</a>
+    </nav>
+  </header>
+
+  <h1 class="page-title">10x Server Boost (1 Month)</h1>
+  <p class="page-sub">Order your 10x Discord Server Boost package below.</p>
+
+  <div class="container">
+    <div class="product-desc">
+      <h3>Boost Package Details</h3>
+      <p>Apply 10 server boosts to any server of your choice. Boosts last 25–31 days with fast delivery. Please do not remove boosting IDs from your server. Delivery is instant using your server invite link. Our distribution is secure and flexible.</p>
+      <p><strong>Important:</strong> Invites that trigger role/rule/verification popups and block boosts will be treated as invalid. Blaze Shop is not responsible for boost loss. For payments, open a support ticket. Orders are delivered instantly or within 24 hours if automatic delivery fails. No refunds under any circumstances. Issues such as Nitro being revoked, not renewing, or ending early are not our responsibility.</p>
+    </div>
+
+    <form action="https://formspree.io/f/xkgpwezd" method="POST">
+      <label for="name">Full Name* <small>Your name for order confirmation.</small></label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="discord">Discord Server Link* <small>Permanent server invite link.</small></label>
+      <input type="text" id="discord" name="discord" required>
+
+      <label for="email">E-mail Address* <small>Your order confirmation will be sent here.</small></label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="paymentid">Your Payment ID* <small>Provide your wallet/UPI ID for payment.</small></label>
+      <input type="text" id="paymentid" name="paymentid" required>
+
+      <label>Payment Method* (Select One)</label>
+      <label><input type="radio" name="payment_method" value="LTC" required> Litecoin (LTC)</label>
+      <div class="wallet-info">Address: LXQUUhhn5n4gE2DxrktyoKZUP61htszRPR</div>
+
+      <label><input type="radio" name="payment_method" value="BTC" required> Bitcoin (BTC +4.99% fee)</label>
+      <div class="wallet-info">Address: bc1qytwal0455audgzjnta76ptyfcnz39e52fj22hg</div>
+
+      <label><input type="radio" name="payment_method" value="UPI" required> UPI</label>
+      <div class="wallet-info">Working on it</div>
+
+      <p>For other payment methods, create a ticket in our Discord server.</p>
+
+      <label><input type="checkbox" name="terms" required> I have read and agree to Blaze Shop Terms of Service.</label>
+      <label><input type="checkbox" name="updates"> I would like to receive updates and promotions from Blaze Shop.</label>
+
+      <p>Send screenshot and server link to our Discord server. Your order will be automatically processed.</p>
+
+      <button type="submit" class="btn">Submit Order</button>
+    </form>
+  </div>
+
+  <footer>
+    <p>© 2025 BLAZE SHOP • Secure Discord Services</p>
+    <p>Join us on Discord — <strong>https://discord.gg/at2SXcJjAC</strong></p>
+  </footer>
+</body>
+</html>
